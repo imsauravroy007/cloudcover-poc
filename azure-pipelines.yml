@@ -48,6 +48,5 @@ steps:
     inlineScript: |
       az aks get-credentials --resource-group "rg-demoaks" --name "aks-democluster-main" --admin
       kubectl apply -f manifest-info.yml
-      kubectl get namespaces --no-headers=true -o custom-columns=:metadata.name | grep dev- | xargs kubectl delete namespace
-      kubectl get ns
-  displayName: 'Delete All namespaces start with dev-'
+      
+  displayName: 'Apply kubernetes manifest'

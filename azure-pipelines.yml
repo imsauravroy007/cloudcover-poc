@@ -35,26 +35,7 @@ steps:
     environmentServiceNameAzureRM: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
     backendAWSBucketName: 
 
-# - task: TerraformTaskV3@3
-#   inputs:
-#     provider: 'azurerm'
-#     command: 'destroy'
-#     environmentServiceNameAzureRM: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
 
-# - task: AzureCLI@2
-#   inputs:
-#     azureSubscription: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
-#     scriptType: 'batch'
-#     inlineScript: |
-#       az aks get-credentials --resource-group "rg-demoaks" --name "aks-democluster-main" --admin
-#       kubectl apply -f $(Build.SourcesDirectory)/manifest-info.yml
-    
-#   displayName: 'Apply kubernetes manifest'
-
-# - task: CmdLine@2
-#   inputs:
-#     script: |
-#       echo  '$(System.DefaultWorkingDirectory)'
       
 - task: Kubernetes@1
   inputs:

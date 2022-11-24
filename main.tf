@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "rg-aksdemo" {
-  name     = "rg-aksdemo-resources"
+  name     = var.resourcegroup
   location = "West Europe"
 }
 

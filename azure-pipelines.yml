@@ -35,11 +35,11 @@ steps:
     environmentServiceNameAzureRM: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
     backendAWSBucketName: 
 
-- task: TerraformTaskV3@3
-  inputs:
-    provider: 'azurerm'
-    command: 'destroy'
-    environmentServiceNameAzureRM: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
+# - task: TerraformTaskV3@3
+#   inputs:
+#     provider: 'azurerm'
+#     command: 'destroy'
+#     environmentServiceNameAzureRM: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
 
 # - task: AzureCLI@2
 #   inputs:
@@ -50,3 +50,12 @@ steps:
 #       kubectl apply -f $(Build.SourcesDirectory)/manifest-info.yml
     
 #   displayName: 'Apply kubernetes manifest'
+
+- task: Kubernetes@1
+  inputs:
+    connectionType: 'Azure Resource Manager'
+    azureSubscriptionEndpoint: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
+    azureResourceGroup: $(azureResourceGroup)
+    kubernetesCluster: $(kubernetesCluster)
+    command: 'apply'
+    arguments: -f manifest-info.yaml

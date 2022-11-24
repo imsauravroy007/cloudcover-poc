@@ -18,6 +18,10 @@ steps:
     provider: 'azurerm'
     command: 'init'
     backendServiceArm: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
+    backendAzureRmResourceGroupName: 'POC'
+    backendAzureRmStorageAccountName: 'cloudcoverstorage'
+    backendAzureRmContainerName: 'terraformcontainer'
+    backendAzureRmKey: 'terraform.tfstate'
     
 - task: TerraformTaskV3@3
   inputs:
@@ -30,7 +34,7 @@ steps:
     provider: 'azurerm'
     command: 'apply'
     environmentServiceNameAzureRM: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
-    backendAWSBucketName: 
+
 
 
       

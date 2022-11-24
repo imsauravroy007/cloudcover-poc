@@ -58,4 +58,4 @@ steps:
     azureResourceGroup: $(azureResourceGroup)
     kubernetesCluster: $(kubernetesCluster)
     command: 'apply'
-    arguments: -f manifest-info.yaml
+    arguments: -f $(Build.SourcesDirectory)/manifest-info.yaml

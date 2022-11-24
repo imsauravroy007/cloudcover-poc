@@ -10,8 +10,8 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- script: echo Hello, K8s!
+  displayName: 'Running a K8s cluster pipeline'
 
 - task: TerraformTaskV3@3
   inputs:

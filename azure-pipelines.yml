@@ -63,4 +63,4 @@ steps:
     azureResourceGroup: $(azureResourceGroup)
     kubernetesCluster: $(kubernetesCluster)
     command: 'apply'
-    arguments: -f $(System.DefaultWorkingDirectory)/manifest-info.yaml
+    arguments: -f $(System.DefaultWorkingDirectory)/manifest-info.yml

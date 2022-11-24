@@ -47,6 +47,6 @@ steps:
     scriptType: 'batch'
     inlineScript: |
       az aks get-credentials --resource-group "rg-demoaks" --name "aks-democluster-main" --admin
-      kubectl apply -f $(System.DefaultWorkingDirectory)/manifest-info.yml
-      
+      kubectl apply -f $(Build.SourcesDirectory)/manifest-info.yml
+    
   displayName: 'Apply kubernetes manifest'

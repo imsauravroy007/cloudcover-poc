@@ -18,6 +18,8 @@ resource "azurerm_kubernetes_cluster" "aks-democluster" {
   identity {
     type = "SystemAssigned"
   }
+  
+  depends_on = [azurerm_resource_group.rg-aksdemo]
 
   tags = {
     Environment = "Development"

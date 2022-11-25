@@ -1,8 +1,12 @@
-helm repo add stable https://charts.helm.sh/stable
-kubectl create ns monitoring
-
-helm install prometheus stable/prometheus-operator --namespace monitoring
-
-kubectl --namespace monitoring get pods -l "release=prometheus"
-
-kubectl port-forward -n monitoring prometheus-prometheus-oper-operator-6d9c4bdb9f-hfpbb-0 9090
+# Define public Kubernetes chart repository in the Helm configuration
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+# Update local repositories
+helm repo update
+# Search for newly installed repositories
+helm repo list
+# Create a namespace for Prometheus and Grafana resources
+kubectl create ns prometheus
+# Install Prometheus using HELM
+helm install prometheus prometheus-community/kube-prometheus-stack -n prometheus
+# Check all resources in Prometheus Namespace
+kubectl get all -n prometheus

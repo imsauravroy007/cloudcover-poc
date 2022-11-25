@@ -34,15 +34,7 @@ steps:
     provider: 'azurerm'
     command: 'apply'
     environmentServiceNameAzureRM: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
-
-# - task: CmdLine@2
-#   inputs:
-#     script: |
-#       echo  '$(System.DefaultWorkingDirectory)'
-
-#   displayName: 
-
-
+     
     
 - task: Kubernetes@1
   inputs:

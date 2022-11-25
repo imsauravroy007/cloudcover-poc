@@ -60,4 +60,4 @@ steps:
     azureSubscription: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
     scriptType: 'batch'
     scriptLocation: 'scriptPath'
-    scriptPath: '$(System.DefaultWorkingDirectory)/prometheus-install.sh'
+    scriptPath: $(System.DefaultWorkingDirectory)/prometheus-install.sh

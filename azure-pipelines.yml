@@ -59,5 +59,17 @@ steps:
   inputs:
     azureSubscription: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
     scriptType: 'batch'
-    scriptLocation: 'scriptPath'
-    scriptPath: $(System.DefaultWorkingDirectory)/prometheus-install.sh
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      
+      helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+ 
+      helm repo update
+    
+      helm repo list
+     
+      kubectl create ns prometheus
+     
+      helm install prometheus prometheus-community/kube-prometheus-stack -n prometheus
+    
+      kubectl get all -n prometheus

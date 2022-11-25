@@ -52,17 +52,12 @@ steps:
 #     command: 'destroy'
 #     environmentServiceNameAzureRM: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
 
-# - task: HelmInstaller@0
-#   inputs:
-#     helmVersion: '2.14.1'
-#     installKubectl: true
 
-- task: Kubernetes@1
+
+
+- task: AzureCLI@2
   inputs:
-    connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
-    azureResourceGroup: $(azureResourceGroup)
-    kubernetesCluster: $(kubernetesCluster)
-    command: 'apply'
-    arguments: -f $(System.DefaultWorkingDirectory)/prometheus-install.yml
-  displayName: 'Apply kubernetes manifest'  
+    azureSubscription: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
+    scriptType: 'batch'
+    scriptLocation: 'scriptPath'
+    scriptPath: '$(System.DefaultWorkingDirectory)/prometheus-install.sh'

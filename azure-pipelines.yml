@@ -52,3 +52,8 @@ steps:
 #     command: 'destroy'
 #     environmentServiceNameAzureRM: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
 
+- task: Datadog@0
+  inputs:
+    connectedServiceDatadog: 'DatadogConnection'
+    monitorID: '104053348'
+    severityThreshold: 'alert'

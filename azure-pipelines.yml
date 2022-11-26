@@ -55,12 +55,12 @@ steps:
 
 
 
-# - task: AzureCLI@2
-#   inputs:
-#     azureSubscription: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
-#     scriptType: 'batch'
-#     scriptLocation: 'inlineScript'
-#     inlineScript: |
-      
-#       helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
+    scriptType: 'batch'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      echo  $(azureResourceGroup)
+     # helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
      

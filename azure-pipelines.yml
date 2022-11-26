@@ -9,6 +9,10 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  configuration: debug
+  platform: x64
+
 steps:
 - script: echo Hello, K8s!
   displayName: 'Running a K8s cluster pipeline'
@@ -70,3 +74,15 @@ steps:
        echo  $(azureResourceGroup)
        echo  $(kubernetesCluster)
        echo Hello world
+
+- task: AzureMonitor@1
+  inputs:
+    connectedServiceNameARM: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
+    ResourceGroupName: '$(azureResourceGroup)'
+    filterType: 'none'
+
+- task: Datadog@0
+  inputs:
+    connectedServiceDatadog: 'DatadogConnection'
+    monitorID: '104053348'
+    severityThreshold: 'alert'

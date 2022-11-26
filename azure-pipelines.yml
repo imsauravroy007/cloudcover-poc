@@ -68,5 +68,5 @@ steps:
   inputs:
      script: |
        echo  $(azureResourceGroup)
-       
+       echo  $(kubernetesCluster)
        echo Hello world

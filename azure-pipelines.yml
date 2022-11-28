@@ -36,28 +36,28 @@ steps:
     command: 'plan'
     environmentServiceNameAzureRM: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
 
-# - task: TerraformTaskV3@3
-#   inputs:
-#     provider: 'azurerm'
-#     command: 'apply'
-#     environmentServiceNameAzureRM: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
-     
-    
-# - task: Kubernetes@1
-#   inputs:
-#     connectionType: 'Azure Resource Manager'
-#     azureSubscriptionEndpoint: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
-#     azureResourceGroup: $(azureResourceGroup)
-#     kubernetesCluster: $(kubernetesCluster)
-#     command: 'apply'
-#     arguments: -f $(System.DefaultWorkingDirectory)/manifest-info.yml
-#   displayName: 'Apply kubernetes manifest'  
-
 - task: TerraformTaskV3@3
   inputs:
     provider: 'azurerm'
-    command: 'destroy'
+    command: 'apply'
     environmentServiceNameAzureRM: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
+     
+    
+- task: Kubernetes@1
+  inputs:
+    connectionType: 'Azure Resource Manager'
+    azureSubscriptionEndpoint: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
+    azureResourceGroup: $(azureResourceGroup)
+    kubernetesCluster: $(kubernetesCluster)
+    command: 'apply'
+    arguments: -f $(System.DefaultWorkingDirectory)/manifest-info.yml
+  displayName: 'Apply kubernetes manifest'  
+
+# - task: TerraformTaskV3@3
+#   inputs:
+#     provider: 'azurerm'
+#     command: 'destroy'
+#     environmentServiceNameAzureRM: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
 
 
 
@@ -71,12 +71,7 @@ steps:
 #       echo  $(azureResourceGroup)
 #      # helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
      
-# - task: CmdLine@2
-#   inputs:
-#      script: |
-#        echo  $(azureResourceGroup)
-#        echo  $(kubernetesCluster)
-#        echo Hello world
+
 
 
   

@@ -11,9 +11,7 @@ pool:
   vmImage: ubuntu-latest
 
 
-variables:
-  configuration: debug
-  platform: x64
+
 
 steps:
 - script: echo Hello, K8s!

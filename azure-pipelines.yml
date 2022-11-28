@@ -30,11 +30,11 @@ steps:
     backendAzureRmContainerName: 'terraformcontainer'
     backendAzureRmKey: 'terraform.tfstate'
     
-- task: TerraformTaskV3@3
-  inputs:
-    provider: 'azurerm'
-    command: 'plan'
-    environmentServiceNameAzureRM: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
+# - task: TerraformTaskV3@3
+#   inputs:
+#     provider: 'azurerm'
+#     command: 'plan'
+#     environmentServiceNameAzureRM: 'CognitiveSubscription (95e910f9-7fcb-4fb8-90a1-d81f3d52cfa9)'
 
 # - task: TerraformTaskV3@3
 #   inputs:
